@@ -22,7 +22,6 @@ const Users = () => {
                 {users.map((u, i) => {
 
                     return (
-
                         <tr key={u._id}>
                             <td>{i+1}</td>
                             <td>{u.name}</td>
@@ -36,9 +35,7 @@ const Users = () => {
                                 <button onClick={handlerDelete}>Delete</button>
                             }</td>
                         </tr>
-
                         )
-
                 })}
             </table>
         </>
