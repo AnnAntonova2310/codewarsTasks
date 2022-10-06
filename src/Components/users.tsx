@@ -9,11 +9,11 @@ const Users = () => {
     }
     let badge;
     if (users.length === 0) {
-        badge = 'Никто не тусанёт с тобой сегодня'
+        badge = <span className={'zero'}>Никто не тусанёт с тобой сегодня</span>
     } else if (users.length > 1 && users.length < 5) {
         badge = `${users.length} человека тусанёт с тобой сегодня`
     } else {
-        badge = `${users.length} человек тусанет с тобой сегодня`
+        badge  = `${users.length} человек тусанет с тобой сегодня`
     }
 
 
@@ -23,14 +23,14 @@ const Users = () => {
             {/*/!*<h1>1 человек тусанет с тобой сегодня </h1>*!/ л = 1, 5*/}
             {/*/!*<h1>2 человека тусанут с тобой сегодня </h1>*!/  л = 2*/}
 
-            <h1>{badge}</h1>
+            <h1 className={'h'}>{badge}</h1>
 
             {/*<h1>{ users.length === 0 ? 'Никто не тусанёт с тобой сегодня' : null }</h1>*/}
 
 
-            {users.length > 0 && <table>
+            {users.length > 0 && <table className={'thTd'}>
                 <tr>
-                    <th>№</th>
+                    <th className={'th'}>№</th>
                     <th>Имя</th>
                     <th>Качества</th>
                     <th>Профессия</th>
@@ -40,17 +40,17 @@ const Users = () => {
                 {users.map((u, i) => {
 
                     return (
-                        <tr key={u._id}>
-                            <td>{i + 1}</td>
-                            <td>{u.name}</td>
-                            <td>{
-                                u.qualities.map(q => q.name)
+                        <tr key={u._id} className={'th'}>
+                            <td className={'td size'}>{i + 1}</td>
+                            <td className={'td'}>{u.name}</td>
+                            <td className={'td qualities'}>{
+                                u.qualities.map(q => <span className={`badge ${q.color}`}>{q.name}</span>)
                             }</td>
-                            <td>{u.profession.name}</td>
-                            <td>{u.completedMeetings}</td>
-                            <td>{u.rate}</td>
-                            <td>
-                                <button onClick={() => handlerDelete(u._id)}>Delete</button>
+                            <td className={'td'}>{u.profession.name}</td>
+                            <td className={'td'}>{u.completedMeetings}</td>
+                            <td className={'td'}>{u.rate}</td>
+                            <td className={'td'}>
+                               <button className={'button button:hover'} onClick={() => handlerDelete(u._id)}>Delete</button>
                             </td>
                         </tr>
                     )
