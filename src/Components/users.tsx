@@ -9,7 +9,7 @@ const Users = () => {
     }
     let badge;
     if (users.length === 0) {
-        badge = <span className={'zero'}>Никто не тусанёт с тобой сегодня</span>
+        badge = <span className={'zero '}>Никто не тусанёт с тобой сегодня</span>
     } else if (users.length > 1 && users.length < 5) {
         badge = `${users.length} человека тусанёт с тобой сегодня`
     } else {
@@ -30,12 +30,13 @@ const Users = () => {
 
             {users.length > 0 && <table className={'thTd'}>
                 <tr>
-                    <th className={'th'}>№</th>
-                    <th>Имя</th>
-                    <th>Качества</th>
-                    <th>Профессия</th>
-                    <th>Встретился, раз</th>
-                    <th>Оценка</th>
+                    <th className={'numberHeader'}>№</th>
+                    <th className={'nameHeader'}>Имя</th>
+                    <th className={'qualityHeader'}>Качества</th>
+                    <th className={'professionHeader'}>Профессия</th>
+                    <th className={'countHeader'}>Количество<br/>встреч</th>
+                    <th className={'estimationHeader'}>Оценка</th>
+                    <th ></th>
                 </tr>
                 {users.map((u, i) => {
 
@@ -44,7 +45,7 @@ const Users = () => {
                             <td className={'td size'}>{i + 1}</td>
                             <td className={'td'}>{u.name}</td>
                             <td className={'td qualities'}>{
-                                u.qualities.map(q => <span className={`badge ${q.color}`}>{q.name}</span>)
+                                u.qualities.map(q => <span className={`badge  ${q.color}`}>{q.name}</span>)
                             }</td>
                             <td className={'td'}>{u.profession.name}</td>
                             <td className={'td'}>{u.completedMeetings}</td>

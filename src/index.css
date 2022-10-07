@@ -1,3 +1,7 @@
+* {
+   text-align: center;
+}
+
 .thTd {
     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
     text-align: left;
@@ -10,7 +14,7 @@
     margin-top: 50px;
 }
 
-.th {
+th {
     font-size: 14px;
     padding: 10px;
 }
@@ -22,7 +26,31 @@
 .td {
     background: #ffffff;
     padding: 15px;
-    width: 150px;
+    /*width: 150px;*/
+}
+
+.numberHeader {
+    width: 85px;
+}
+
+.nameHeader {
+    width: 200px;
+}
+
+.qualityHeader {
+    width: 305px;
+}
+
+.professionHeader {
+    width: 115px;
+}
+
+.countHeader {
+    width: 100px;
+}
+
+.estimationHeader {
+    width: 85px;
 }
 
 .button {
@@ -63,13 +91,42 @@
 }
 
 .info {
-
     background-color: #7a7ae8;
     color: white;
 
 }
 
+.secondary {
+    background-color: #cb7ae8;
+    color: white;
+}
+
+.primary {
+    background-color: #88b450;
+    color: white;
+}
+
+.success {
+    background-color: #e8c97a;
+    color: white;
+}
+
+.danger {
+    background-color: #e88a7a;
+    color: white;
+}
+
+.dark {
+    background-color: #4bb1a5;
+    color: white;
+}
+
 .zero {
-    background-color: #e74d3a;
+    background-color: #b80000;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+    text-align: left;
 
 }
