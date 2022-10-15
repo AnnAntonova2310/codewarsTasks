@@ -42,7 +42,7 @@ export const Table: FC<TableType> = ({users, handlerDelete, handlerBookmarkSwitc
                                 <td className={'td'}>{u.profession.name}</td>
                                 <td className={'td'}>{u.completedMeetings}</td>
                                 <td className={'td'}>{u.rate}</td>
-                                <td className={'td'}>
+                                <td className={'td bookmarkWrapper'}>
                                     <Bookmark bookmark={u.bookmark} id={u._id} handlerBookmarkSwitcher={handlerBookmarkSwitcher}/>
                                 </td>
                                 <td className={'td'}>

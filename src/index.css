@@ -130,3 +130,20 @@ th {
     text-align: left;
 
 }
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.bookmarkWrapper {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.bookmark {
+    width: 30px;
+    height: 30px;
+}
