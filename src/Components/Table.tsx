@@ -1,15 +1,16 @@
 import React, {FC} from 'react';
-import Izbrannoe from "./Izbrannoe";
+import Bookmark from "./Bookmark";
 
 type UserType = {}
 
 type TableType = {
     users: Array<any>
     handlerDelete: (id: string) => void
+    handlerBookmarkSwitcher: (id: string, newBookmark: boolean) => void
 }
 
 
-export const Table: FC<TableType> = ({users, handlerDelete}) => {
+export const Table: FC<TableType> = ({users, handlerDelete, handlerBookmarkSwitcher}) => {
 
     return (
         <div>
@@ -26,6 +27,9 @@ export const Table: FC<TableType> = ({users, handlerDelete}) => {
                         <th></th>
                     </tr>
                     {users.map((u, i) => {
+                        // const bookmarkSwitcher = (newBookmark: boolean) => {
+                        //     handlerBookmarkSwitcher(u._id, newBookmark)
+                        // }
 
                         return (
                             <tr key={u._id} className={'th'}>
@@ -38,7 +42,9 @@ export const Table: FC<TableType> = ({users, handlerDelete}) => {
                                 <td className={'td'}>{u.profession.name}</td>
                                 <td className={'td'}>{u.completedMeetings}</td>
                                 <td className={'td'}>{u.rate}</td>
-                                <td className={'td'}><Izbrannoe/></td>
+                                <td className={'td'}>
+                                    <Bookmark bookmark={u.bookmark} id={u._id} handlerBookmarkSwitcher={handlerBookmarkSwitcher}/>
+                                </td>
                                 <td className={'td'}>
                                     <button className={'button button:hover'}
                                             onClick={() => handlerDelete(u._id)}>Delete

@@ -114,7 +114,7 @@ const users = [
         qualities: [qualities.uncertain, qualities.strange],
         completedMeetings: 434,
         rate: 3.5,
-        bookmark: false
+        bookmark: true
     },
     {
         _id: "67rdca3eeb7f6fgeed47181r",
