@@ -1,5 +1,7 @@
 import React, {FC} from 'react';
 import Bookmark from "./Bookmark";
+import {Pagination} from "./Pagination";
+
 
 type UserType = {}
 
@@ -10,12 +12,18 @@ type TableType = {
 }
 
 
-export const Table: FC<TableType> = ({users, handlerDelete, handlerBookmarkSwitcher}) => {
 
+
+export const Table: FC<TableType> = ({users, handlerDelete, handlerBookmarkSwitcher}) => {
+    const  count = users.length
+    const  pageSize = 4
+    const handlerPageChange = (pageIndex: number) => {
+        console.log('page', pageIndex)
+    }
     return (
         <div>
             {
-                users.length > 0 && <table className={'thTd'}>
+                count > 0 && <table className={'thTd'}>
                     <tr>
                         <th className={'numberHeader'}>№</th>
                         <th className={'nameHeader'}>Имя</th>
@@ -43,18 +51,21 @@ export const Table: FC<TableType> = ({users, handlerDelete, handlerBookmarkSwitc
                                 <td className={'td'}>{u.completedMeetings}</td>
                                 <td className={'td'}>{u.rate}</td>
                                 <td className={'td bookmarkWrapper'}>
-                                    <Bookmark bookmark={u.bookmark} id={u._id} handlerBookmarkSwitcher={handlerBookmarkSwitcher}/>
+                                    <Bookmark bookmark={u.bookmark} id={u._id}
+                                              handlerBookmarkSwitcher={handlerBookmarkSwitcher}/>
                                 </td>
                                 <td className={'td'}>
                                     <button className={'button button:hover'}
                                             onClick={() => handlerDelete(u._id)}>Delete
                                     </button>
+
                                 </td>
                             </tr>
                         )
                     })}
                 </table>
             }
+            <Pagination itemsCount={count} pageSize={pageSize} handlerPageChange={handlerPageChange}/>
         </div>
     );
 };
