@@ -1,6 +1,7 @@
 import React, {FC, useState} from 'react';
 import Bookmark from "./Bookmark";
 import {Pagination} from "./Pagination";
+import {paginate} from "../utils/paginate";
 
 
 type UserType = {}
@@ -20,6 +21,13 @@ export const Table: FC<TableType> = ({users, handlerDelete, handlerBookmarkSwitc
         console.log('page: ', pageIndex)
         setCurrentPage(pageIndex)
     }
+
+    // const paginate = (users: Array<any>, currentPage: number, pageSize: number)=> {
+    //     const startIndex = (currentPage-1)*pageSize
+    //     return [...users].splice(startIndex,pageSize)
+    // }
+
+    const userCrop = paginate(users, currentPage, pageSize)
     return (
         <div>
             {
@@ -34,7 +42,7 @@ export const Table: FC<TableType> = ({users, handlerDelete, handlerBookmarkSwitc
                         <th className={'izb'}>Избранное</th>
                         <th></th>
                     </tr>
-                    {users.map((u, i) => {
+                    {userCrop.map((u, i) => {
                         // const bookmarkSwitcher = (newBookmark: boolean) => {
                         //     handlerBookmarkSwitcher(u._id, newBookmark)
                         // }
