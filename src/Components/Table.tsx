@@ -16,9 +16,9 @@ type TableType = {
 
 export const Table: FC<TableType> = ({users, handlerDelete, handlerBookmarkSwitcher}) => {
     const  count = users.length
-    const  pageSize = 4
+    const  pageSize = 14
     const handlerPageChange = (pageIndex: number) => {
-        console.log('page', pageIndex)
+        console.log('page: ', pageIndex)
     }
     return (
         <div>
