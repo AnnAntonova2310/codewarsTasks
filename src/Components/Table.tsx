@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, useState} from 'react';
 import Bookmark from "./Bookmark";
 import {Pagination} from "./Pagination";
 
@@ -12,13 +12,13 @@ type TableType = {
 }
 
 
-
-
 export const Table: FC<TableType> = ({users, handlerDelete, handlerBookmarkSwitcher}) => {
-    const  count = users.length
-    const  pageSize = 14
+    const count = users.length
+    const pageSize = 4
+    const [currentPage, setCurrentPage] = useState(1)
     const handlerPageChange = (pageIndex: number) => {
         console.log('page: ', pageIndex)
+        setCurrentPage(pageIndex)
     }
     return (
         <div>
@@ -65,7 +65,12 @@ export const Table: FC<TableType> = ({users, handlerDelete, handlerBookmarkSwitc
                     })}
                 </table>
             }
-            <Pagination itemsCount={count} pageSize={pageSize} handlerPageChange={handlerPageChange}/>
+            <Pagination
+                itemsCount={count}
+                pageSize={pageSize}
+                handlerPageChange={handlerPageChange}
+                currentPage={currentPage}
+            />
         </div>
     );
 };

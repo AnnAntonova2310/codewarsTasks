@@ -1,5 +1,5 @@
 * {
-   text-align: center;
+    text-align: center;
 }
 
 .thTd {
@@ -146,4 +146,43 @@ img {
 .bookmark {
     width: 30px;
     height: 30px;
+}
+
+.page-item {
+    display: inline;
+    text-align: center;
+    border: 1px solid #ddd;
+    transition: background-color .3s;
+    margin: 0 4px;
+}
+
+.page-link {
+    float: left;
+    display: inline-block;
+    font-size: 14px;
+    text-decoration: none;
+    padding: 5px 12px;
+    /*color: #000000;*/
+    border: 1px solid transparent;
+    line-height: 1.5;
+
+}
+
+.pagination {
+    list-style: none;
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.item-active {
+    background-color: #4CAF50;
+    color: #ffffff;
+
+}
+
+.pagination li:not(.item-active) a:hover {
+    background-color: #ddd;
+    cursor: pointer;
 }
