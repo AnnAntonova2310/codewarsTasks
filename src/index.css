@@ -1,10 +1,10 @@
-* {
+table {
     text-align: center;
 }
 
 .thTd {
     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-    text-align: left;
+    /*text-align: left;*/
     border-collapse: separate;
     border-spacing: 5px;
     background: #ECE9E0;
@@ -185,4 +185,21 @@ img {
 .pagination li:not(.item-active) a:hover {
     background-color: #ddd;
     cursor: pointer;
+}
+
+.list-group {
+    list-style: none;
+    padding: 0px;
+    margin-top: 40px;
+    display: block;
+    justify-content: left;
+    border: #7878fd;
+
+}
+
+.list-group-item {
+    /*border: #7878fd;*/
+    background-color: #ECE9E0;
+    width: 100px;
+    height: 30px;
 }

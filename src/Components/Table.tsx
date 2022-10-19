@@ -2,6 +2,7 @@ import React, {FC, useState} from 'react';
 import Bookmark from "./Bookmark";
 import {Pagination} from "./Pagination";
 import {paginate} from "../utils/paginate";
+import {GroupList} from "./GroupList";
 
 
 type UserType = {}
@@ -30,6 +31,7 @@ export const Table: FC<TableType> = ({users, handlerDelete, handlerBookmarkSwitc
     const userCrop = paginate(users, currentPage, pageSize)
     return (
         <div>
+            <GroupList/>
             {
                 count > 0 && <table className={'thTd'}>
                     <tr>
