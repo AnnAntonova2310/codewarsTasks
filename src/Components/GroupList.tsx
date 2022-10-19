@@ -1,9 +1,7 @@
 import React, {FC} from 'react';
 
 type GroupListType = {
-    items: Promise<any>
-
-
+    items: Promise<any> | undefined
     onItemSelect: () => void
 }
 

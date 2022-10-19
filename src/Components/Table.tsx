@@ -1,4 +1,4 @@
-import React, {FC, useState} from 'react';
+import React, {FC, useState, useEffect} from 'react';
 import Bookmark from "./Bookmark";
 import {Pagination} from "./Pagination";
 import {paginate} from "../utils/paginate";
@@ -19,14 +19,18 @@ export const Table: FC<TableType> = ({users, handlerDelete, handlerBookmarkSwitc
     const count = users.length
     const pageSize = 4
     const [currentPage, setCurrentPage] = useState(1)
-    const [professions, setProfessions] = useState(api.professions.fetchAll())
+    const [professions, setProfessions] = useState()
+    useEffect(()=> {
+        console.log()
+        api.professions.fetchAll().then((data)=>setProfessions(data))
+        console.log('render')
+    }, [])
 
 
     const handlerProfessionSelect = () => {
 
     }
     const handlerPageChange = (pageIndex: number) => {
-        console.log('page: ', pageIndex)
         setCurrentPage(pageIndex)
     }
 
