@@ -2,6 +2,7 @@ import React, {FC, useState} from 'react';
 import Bookmark from "./Bookmark";
 import {Pagination} from "./Pagination";
 import {paginate} from "../utils/paginate";
+import api from '../api'
 import {GroupList} from "./GroupList";
 
 
@@ -18,6 +19,12 @@ export const Table: FC<TableType> = ({users, handlerDelete, handlerBookmarkSwitc
     const count = users.length
     const pageSize = 4
     const [currentPage, setCurrentPage] = useState(1)
+    const [professions, setProfessions] = useState(api.professions.fetchAll())
+
+
+    const handlerProfessionSelect = () => {
+
+    }
     const handlerPageChange = (pageIndex: number) => {
         console.log('page: ', pageIndex)
         setCurrentPage(pageIndex)
@@ -31,7 +38,7 @@ export const Table: FC<TableType> = ({users, handlerDelete, handlerBookmarkSwitc
     const userCrop = paginate(users, currentPage, pageSize)
     return (
         <div>
-            <GroupList/>
+            <GroupList items={professions} onItemSelect={handlerProfessionSelect}/>
             {
                 count > 0 && <table className={'thTd'}>
                     <tr>

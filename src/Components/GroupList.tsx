@@ -1,6 +1,13 @@
-import React from 'react';
+import React, {FC} from 'react';
 
-export const GroupList = () => {
+type GroupListType = {
+    items: Promise<any>
+
+
+    onItemSelect: () => void
+}
+
+export const GroupList:FC<GroupListType> = ({items}) => {
     return (
         <ul className={'list-group'}>
             <li className={'list-group-item'}>An item</li>

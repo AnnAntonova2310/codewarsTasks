@@ -189,7 +189,7 @@ img {
 
 .list-group {
     list-style: none;
-    padding: 0px;
+    padding: 10px;
     margin-top: 40px;
     display: block;
     justify-content: left;
