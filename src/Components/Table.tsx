@@ -42,7 +42,13 @@ export const Table: FC<TableType> = ({users, handlerDelete, handlerBookmarkSwitc
     const userCrop = paginate(users, currentPage, pageSize)
     return (
         <div>
-            <GroupList items={professions} onItemSelect={handlerProfessionSelect}/>
+            {professions && <GroupList
+                items={professions}
+                onItemSelect={handlerProfessionSelect}
+                valueProperty={'_id'}
+                contentProperty={'name'}
+            />}
+
             {
                 count > 0 && <table className={'thTd'}>
                     <tr>

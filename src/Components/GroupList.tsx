@@ -1,18 +1,19 @@
 import React, {FC} from 'react';
+import {it} from "node:test";
 
 type GroupListType = {
-    items: Promise<any> | undefined
+    items: any
     onItemSelect: () => void
+    valueProperty: string
+    contentProperty: string
 }
 
-export const GroupList:FC<GroupListType> = ({items}) => {
+export const GroupList:FC<GroupListType> = ({items, valueProperty, contentProperty, onItemSelect}) => {
     return (
         <ul className={'list-group'}>
-            <li className={'list-group-item'}>An item</li>
-            <li className={'list-group-item'}>A second item</li>
-            <li className={'list-group-item'}>A third item</li>
-            <li className={'list-group-item'}>A fourth item</li>
-            <li className={'list-group-item'}>A fifth one</li>
+            {Object.keys(items).map(item=>
+                <li key={items[item][valueProperty]} className={'list-group-item'}>{items[item][contentProperty]}</li>)
+            }
         </ul>
     );
 };
